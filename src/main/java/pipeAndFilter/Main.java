@@ -12,11 +12,14 @@ public class Main {
         SortByCityFilter sortByCityFilter = new SortByCityFilter();
         pipe.filters.add(sortByCityFilter);
 
-        Scanner scanner = new Scanner(new File("C:\\Users\\BNRI\\Desktop\\Homework1\\test.csv"));
+        Scanner scanner = new Scanner(new File("C:\\Users\\User\\Desktop\\V SEMESTAR\\Dizajn i arhitektura na softver\\Homework1\\test.csv"));
         scanner.useDelimiter(",");
 
+        Scanner consoleInput = new Scanner(System.in);
+        String input = consoleInput.nextLine();
+
         while (scanner.hasNextLine()) {
-            System.out.print(pipe.runFilter(scanner.nextLine()));
+            System.out.print(pipe.runFilter(scanner.nextLine(), input));
         }
     }
 }

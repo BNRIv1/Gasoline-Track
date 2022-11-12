@@ -4,15 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pipe<T> {
+
     public List<Filter<T>> filters = new ArrayList<>();
 
-    public void addFilter(Filter<T> filter){
-        filters.add(filter);
-    }
-
-    public T runFilter(T input){
-        for(Filter<T> filter : filters){
-            input = filter.execute(input);
+    public T runFilter(T input, String searchInput) {
+        for (Filter<T> filter : filters) {
+            if (filter instanceof SortByCityFilter) {
+                input = filter.execute(input, searchInput);
+            } else input = filter.execute(input);
         }
         return input;
     }
