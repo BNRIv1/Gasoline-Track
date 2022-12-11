@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+::-webkit-scrollbar {
+    width: .60rem;
+    background-color: white;
+    border-radius: .5rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #414FC7;
+    border-radius: .5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #414FC7;
+
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+.home_heading{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 96px;
+}
+
+.home_line{
+    width: 700px;
+    height: 0px;
+    border: 2px solid #414FC7;
+    background-color: #414FC7;
+}
+
+.home_select_heading{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 48px;
+    text-align: center;
+}
+
+.select_options, #home_list_all_heading{
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+#home_list_all{
+    height: 250px;
+}
+
+.btn-primary{
+    background-color: #414FC7;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 30px;
+}
+.welcome_blue_box{
+    position: absolute;
+    width: 1000px;
+    height: 1500px;
+    left: -180px;
+    top: -400px;
+    background: #414FC7;
+    box-shadow: 30px 0px 50px rgba(0, 0, 0, 0.25);
+    transform: rotate(20.76deg);
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 481px){
+    .welcome_blue_box {
+        position: absolute;
+        width: 1000px;
+        height: 1500px;
+        left: -200px;
+        top: -600px;
+        background: #414FC7;
+        box-shadow: 30px 0px 50px rgb(0 0 0 / 25%);
+        transform: rotate(90deg);
+    }
+}
+
+@media only screen and (max-width: 480px){
+    .welcome_blue_box {
+        position: absolute;
+        width: 1000px;
+        height: 1500px;
+        left: -200px;
+        top: -400px;
+        background: #414FC7;
+        box-shadow: 30px 0px 50px rgb(0 0 0 / 25%);
+        transform: rotate(90deg);
+    }
+}
+
+.welcome_picture{
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    left: 130px;
+    top: 130px;
+}
+
+.welcome_text{
+    width: 800px;
+    position: absolute;
+    right: 4%;
+    top: 20%;
+}
+.welcome_heading{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 96px;
+    text-align: center;
+}
+
+.welcome_heading_bolder{
+    font-style: normal;
+    font-weight: 800 !important;
+    font-size: 64px;
+    text-align: center;
+}
+
+.welcome_line{
+    width: 300px;
+    height: 0;
+    border: 2px solid #414FC7;
+    background-color: #414FC7;
+}
+
+.welcome_labels{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    text-align: center;
+}
+
+.prices_heading{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 48px;
+}
+
+.prices_box{
+    width: 200px;
+    height: 104px;
+    background: #414FC7;
+    border-radius: 10px;
+}
+
+.prices_prices{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 60px;
+}
+
+.prices_calculator_heading{
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 60px;
+}
+
+.prices_second_heading{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 23px;
+    line-height: 48px;
+}
+
+.prices_calculate_button{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 40px;
+}
+
+.prices_total_price{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+}
+
