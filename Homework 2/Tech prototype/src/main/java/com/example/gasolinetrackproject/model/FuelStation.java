@@ -1,6 +1,5 @@
 package com.example.gasolinetrackproject.model;
 
-<<<<<<< HEAD
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -33,21 +32,3 @@ public class FuelStation {
 }
 
 
-=======
-public class FuelStation {
-
-    private City city;
-    private Company company;
-    private String fuelStationName;
-
-    public FuelStation() {
-    }
-
-    public FuelStation(City city, Company company, String fuelStationName) {
-        this.city = city;
-        this.company = company;
-        this.fuelStationName = fuelStationName;
-    }
-}
-
->>>>>>> master
