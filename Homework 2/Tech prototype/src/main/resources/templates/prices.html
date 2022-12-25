@@ -202,6 +202,12 @@
             font-weight: 600;
             font-size: 20px;
         }
+
+        .error{
+            color: red;
+            font-weight: bold;
+            font-size: large;
+        }
     </style>
 
 </head>
@@ -226,7 +232,7 @@
             </div>
             <div class="col-12 prices_box mt-3 d-flex align-items-center justify-content-center">
                 <div class="prices_prices text-white">
-                    84.5 ден
+                    <th:block th:text="${fuels[0].getFuelPrice()} + ' денари'"></th:block>
                 </div>
             </div>
         </div>
@@ -269,7 +275,8 @@
     </div>
 
     <div class="">
-        <form th:action="@{/prices}" th:method="GET" id="calculate_form">
+        <form th:action="@{/prices/calculate}" th:method="POST" id="calculate_form">
+            <div th:if="${hasError}" th:text="'Пополнете ги сите полиња!'" class="error text-center"></div>
             <div>
                 <div class="prices_second_heading text-center">
                     Одбери гориво
@@ -298,11 +305,9 @@
                 </div>
                 <div class="text-center d-flex align-items-center justify-content-center">
                     <input type="number" step="0.01" class="form-control w-50  prices_input text-center" name="average_consumption">
-                </div>
             </div>
         </form>
     </div>
-
     <div class="row mt-3">
         <div class="col-2"></div>
         <div class="col-8 d-flex align-items-center justify-content-center">
@@ -318,8 +323,7 @@
             Вкупнo километри: <th:block th:if="${distance != null}" th:text="${#numbers.formatDecimal(distance, 1, 2)} + ' километри'"></th:block>
         </div>
     </div>
-
-    <div class="row mt-5 me-5">
+    <div class="row mt-5 me-5 mb-5">
         <div class="col-12 text-end">
             <a href="/home">
                 <button class="btn btn-primary px-5 ">Прикажи мапа</button>
