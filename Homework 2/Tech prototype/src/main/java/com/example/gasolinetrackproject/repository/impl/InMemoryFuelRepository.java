@@ -9,9 +9,9 @@ import java.util.List;
 public class InMemoryFuelRepository {
 
     public List<Fuel> findAllFuels(){
-        return List.of(new Fuel(1L, "Бензин 95+", 84.5f ),
-                new Fuel(2L, "Бензин 98+", 86.5f ),
-                new Fuel(3L, "Дизел", 84.5f ),
+        return List.of(new Fuel(1L, "Бензин 95+", 76.0f ),
+                new Fuel(2L, "Бензин 98+", 78.5f ),
+                new Fuel(3L, "Дизел", 81.0f ),
                 new Fuel(4L, "Плин", 50f )
                 );
     }

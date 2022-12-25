@@ -193,7 +193,7 @@
         .prices_calculate_button{
             font-style: normal;
             font-weight: 600;
-            font-size: 30px;
+            font-size: 25px;
             line-height: 40px;
         }
 
@@ -226,44 +226,36 @@
         </div>
     </div>
     <div class="row text-center">
-        <div class="col-3 d-flex align-items-center flex-column">
+        <div class="col-xl-3 col-6 d-flex align-items-center flex-column">
             <div class="col-12 prices_heading">
                 Бензин 95+
             </div>
             <div class="col-12 prices_box mt-3 d-flex align-items-center justify-content-center">
-                <div class="prices_prices text-white">
-                    <th:block th:text="${fuels[0].getFuelPrice()} + ' денари'"></th:block>
-                </div>
+                <div class="prices_prices text-white" th:text="${fuels[0].getFuelPrice()} + ' ден'"></div>
             </div>
         </div>
-        <div class="col-3 d-flex align-items-center flex-column">
+        <div class="col-xl-3 col-6 d-flex align-items-center flex-column">
             <div class="col-12 prices_heading">
                 Бензин 98+
             </div>
             <div class="col-12 prices_box mt-3 d-flex align-items-center justify-content-center">
-                <div class="prices_prices text-white">
-                    86.5 ден
-                </div>
+                <div class="prices_prices text-white" th:text="${fuels[1].getFuelPrice()} + ' ден'"></div>
             </div>
         </div>
-        <div class="col-3 d-flex align-items-center flex-column">
+        <div class="col-xl-3 col-6 d-flex align-items-center flex-column">
             <div class="col-12 prices_heading">
                 Дизел
             </div>
             <div class="col-12 prices_box mt-3 d-flex align-items-center justify-content-center">
-                <div class="prices_prices text-white">
-                    84.5 ден
-                </div>
+                <div class="prices_prices text-white" th:text="${fuels[2].getFuelPrice()} + ' ден'"></div>
             </div>
         </div>
-        <div class="col-3 d-flex align-items-center flex-column">
+        <div class="col-xl-3 col-6 d-flex align-items-center flex-column">
             <div class="col-12 prices_heading">
                 Плин
             </div>
             <div class="col-12 prices_box mt-3 d-flex align-items-center justify-content-center">
-                <div class="prices_prices text-white">
-                    50 ден
-                </div>
+                <div class="prices_prices text-white" th:text="${fuels[3].getFuelPrice()} + ' ден'"></div>
             </div>
         </div>
     </div>
@@ -296,7 +288,7 @@
                     Внеси литри
                 </div>
                 <div class="text-center d-flex align-items-center justify-content-center">
-                    <input type="number" class="form-control w-50  prices_input text-center" name="amount">
+                    <input type="number" class="form-control w-50  prices_input text-center" name="amount" placeholder="пр: 20">
                 </div>
             </div>
             <div>
@@ -304,7 +296,8 @@
                     Внеси просечна потрошувачка
                 </div>
                 <div class="text-center d-flex align-items-center justify-content-center">
-                    <input type="number" step="0.01" class="form-control w-50  prices_input text-center" name="average_consumption">
+                     <input type="number" step="0.01" class="form-control w-50  prices_input text-center" name="average_consumption" placeholder="пр: 4.6">
+                </div>
             </div>
         </form>
     </div>
@@ -316,14 +309,14 @@
         <div class="col-2"></div>
     </div>
     <div class="d-flex justify-content-center flex-column w-100">
-        <div class="text-center prices_total_price">
+        <div class="text-center prices_total_price mt-3">
             Вкупна цена: <th:block th:if="${price != null}" th:text="${price} + ' денари'"></th:block>
         </div>
-        <div class="text-center prices_total_price">
+        <div class="text-center prices_total_price mt-3">
             Вкупнo километри: <th:block th:if="${distance != null}" th:text="${#numbers.formatDecimal(distance, 1, 2)} + ' километри'"></th:block>
         </div>
     </div>
-    <div class="row mt-5 me-5 mb-5">
+    <div class="row mt-3 me-5">
         <div class="col-12 text-end">
             <a href="/home">
                 <button class="btn btn-primary px-5 ">Прикажи мапа</button>

@@ -45,7 +45,7 @@
             background-color: #414FC7;
         }
 
-        .home_select_heading{
+        .home_select_heading, #home_list_all_heading{
             font-style: normal;
             font-weight: 600;
             font-size: 22px;
@@ -53,7 +53,7 @@
             text-align: center;
         }
 
-        .select_options, #home_list_all_heading{
+        .select_options{
             font-style: normal;
             font-weight: 300;
             font-size: 18px;
@@ -214,7 +214,7 @@
     <div class="row">
         <div class="col-12">
             <h1 class="home_heading text-center mt-5 mb-3">
-                МАПА СО БЕНЗИСКИ СТАНИЦИ ВО РЕПУБЛИКА МАКЕДОНИЈА
+                МАПА СО БЕНЗИНСКИ СТАНИЦИ ВО РЕПУБЛИКА МАКЕДОНИЈА
             </h1>
         </div>
     </div>
@@ -224,13 +224,11 @@
         </div>
     </div>
     <div class="row pt-3 d-flex justify-content-between">
-        <div class="col-lg-5 col-md-12">
+        <div class="col-xl-5 col-12">
             <form th:method="GET" th:action="@{/home}" id="filter_form">
                 <div class="row mb-2">
-
                     <div class="col-6">
                         <h5 class="home_select_heading">Одбери општина</h5>
-
                         <select name="city" class="form-select select_options" aria-label="Default select example">
                             <option value="">Прикажи сите</option>
                             <option th:if="${selectedCity != city}"
@@ -262,14 +260,14 @@
                         </select>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary px-5">Пребарај</button>
+                <button type="submit" class="btn btn-primary px-5 mt-2 w-100">Пребарај</button>
             </form>
             <div class="row mb-2">
                 <div class="form-group">
                     <form th:method="GET" th:action="@{/home/station}">
                         <input type="hidden" id="city" name="city" th:value="${selectedCity}">
                         <input type="hidden" id="company" name="company" th:value="${selectedCompany}">
-                        <label for="list_all" class="text-center mt-5 mb-3 w-100" id="home_list_all_heading">Листа од сите филтрирани бензиски</label>
+                        <label for="list_all" class="text-center mt-3 mb-3 w-100" id="home_list_all_heading">Листа од сите филтрирани бензински</label>
                         <select multiple class="form-control select_options" id="list_all" name="stationId">
                             <option th:if="${selectedStation != null && selectedStation.getId() == station.getId()}"
                                     th:each="station : ${fuelStations}"
@@ -279,17 +277,24 @@
                                     th:each="station: ${fuelStations}"
                                     th:value="${station.getId()}"
                                     th:text="${stationStat.index + 1} + '. ' + ${station.getName()} + ', ' + ${station.getCity()}"></option>
-
+<!--                            <option th:if="fuelStations == null"-->
+<!--                                    th:text="Нема таква бензиска"></option>-->
                         </select>
                     </form>
                 </div>
+                <div class="text-center" th:if="${fuelStations.size() == 0}"
+                     th:text="'Нема бензиски станици според селектираните филтри'"></div>
+                <div class="text-center" th:if="${fuelStations.size() == 1}"
+                     th:text="'Прикажана е ' + ${fuelStations.size()} + ' бензинска станица'"></div>
+                <div class="text-center" th:if="${fuelStations.size() > 1}"
+                     th:text="'Прикажани се ' + ${fuelStations.size()} + ' бензински станици'"></div>
             </div>
         </div>
-        <div class="col-lg-7 col-md-12">
-            <div id="mapdiv" style="width: 700px; height: 450px;"></div>
+        <div class="col-xl-7 col-12">
+            <div class="w-100" id="mapdiv" style="height: 450px;"></div>
         </div>
     </div>
-    <div class="row mt-5 me-5">
+    <div class="row mt-5">
         <div class="col-12 text-end">
             <a href="/prices">
                 <button class="btn btn-primary px-5 ">Прикажи цени</button>
