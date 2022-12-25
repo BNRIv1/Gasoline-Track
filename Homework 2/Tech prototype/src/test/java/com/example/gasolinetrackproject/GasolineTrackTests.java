@@ -4,6 +4,7 @@ import com.example.gasolinetrackproject.service.FuelService;
 import com.example.gasolinetrackproject.service.FuelStationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -47,6 +48,15 @@ public class GasolineTrackTests {
                 .andExpect(MockMvcResultMatchers.model().attributeExists("cities"))
                 .andExpect(MockMvcResultMatchers.model().attributeExists("companies"))
                 .andExpect(MockMvcResultMatchers.view().name("home"));
+    }
 
+    @Test
+    public void testGetPricesPage() throws Exception{
+        MockHttpServletRequestBuilder homePageRequest = MockMvcRequestBuilders.get("/prices");
+        this.mockMvc.perform(homePageRequest)
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.model().attributeExists("fuels"))
+                .andExpect(MockMvcResultMatchers.view().name("prices"));
     }
 }
