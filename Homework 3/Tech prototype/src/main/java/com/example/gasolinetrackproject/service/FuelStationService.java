@@ -9,13 +9,11 @@ public interface FuelStationService {
 
     Optional<FuelStation> save(String name, String city, String coordinate_x, String coordinate_y);
     List<FuelStation> listAll();
-    List<FuelStation> findAllByCity(String city);
-
     List<String> findDistinctByCity();
 
     List<String> findDistinctByName();
 
-    List<FuelStation> findAllByCityAndName(String city, String name);
-    List<FuelStation> findAllByName(String name);
+    List<FuelStation> filterStations(String name, String city);
+
     Optional<FuelStation> findById(Long id);
 }

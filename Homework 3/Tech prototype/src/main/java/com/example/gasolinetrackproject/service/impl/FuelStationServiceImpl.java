@@ -30,11 +30,6 @@ public class FuelStationServiceImpl implements FuelStationService {
     }
 
     @Override
-    public List<FuelStation> findAllByCity(String city) {
-        return this.fuelStationRepository.findAllByCity(city);
-    }
-
-    @Override
     public List<String> findDistinctByCity() {
         return this.fuelStationRepository.findDistinctByCity();
     }
@@ -45,13 +40,16 @@ public class FuelStationServiceImpl implements FuelStationService {
     }
 
     @Override
-    public List<FuelStation> findAllByCityAndName(String city, String name) {
-        return this.fuelStationRepository.findAllByCityAndName(city, name);
-    }
-
-    @Override
-    public List<FuelStation> findAllByName(String name) {
-        return this.fuelStationRepository.findAllByName(name);
+    public List<FuelStation> filterStations(String name, String city) {
+        if (city != null && !city.equals("") && name != null && !name.equals("")){
+            return this.fuelStationRepository.findAllByCityAndName(city, name);
+        }else if(city != null && !city.equals("")){
+            return this.fuelStationRepository.findAllByCity(city);
+        }else if(name != null  && !name.equals("")){
+            return this.fuelStationRepository.findAllByName(name);
+        }else{
+            return  this.fuelStationRepository.findAll();
+        }
     }
 
     @Override
