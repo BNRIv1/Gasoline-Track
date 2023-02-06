@@ -29,15 +29,13 @@ public class HomePageController {
 
         List<FuelStation> fuelStations;
         List<FuelStation> fuelStationsMap;
-        if (city != null && !city.equals("") && company != null && !company.equals("")){
-            fuelStations = this.fuelStationService.findAllByCityAndName(city, company);
-        }else if(city != null && !city.equals("")){
-            fuelStations = this.fuelStationService.findAllByCity(city);
-        }else if(company != null  && !company.equals("")){
-            fuelStations = this.fuelStationService.findAllByName(company);
+
+        if (city != null || company != null) {
+            fuelStations = this.fuelStationService.filterStations(company, city);
         }else{
             fuelStations = this.fuelStationService.listAll();
         }
+
         fuelStationsMap = fuelStations;
         model.addAttribute("fuelStations", fuelStations);
         model.addAttribute("fuelStationsMap", fuelStationsMap);
@@ -64,12 +62,8 @@ public class HomePageController {
             List<FuelStation> fuelStationsMap = new ArrayList<>();
             fuelStationsMap.add(station);
 
-            if (city != null && !city.equals("") && company != null && !company.equals("")){
-                fuelStations = this.fuelStationService.findAllByCityAndName(city, company);
-            }else if(city != null && !city.equals("")){
-                fuelStations = this.fuelStationService.findAllByCity(city);
-            }else if(company != null  && !company.equals("")){
-                fuelStations = this.fuelStationService.findAllByName(company);
+            if (city != null || company != null) {
+                fuelStations = this.fuelStationService.filterStations(company, city);
             }else{
                 fuelStations = this.fuelStationService.listAll();
             }
