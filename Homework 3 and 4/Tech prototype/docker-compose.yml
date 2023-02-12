@@ -1,0 +1,18 @@
+version: '12.2'
+services:
+  springboot-app:
+    image: openjdk
+    ports:
+      - 9091:9090
+    environment:
+      POSTGRES_DATABASE: fuel-stations
+
+  postgresqldb:
+      image: postgres
+      ports:
+        - 5432:5433
+      environment:
+        POSTGRES_DATABASE: fuel-stations
+        ENVG LANGUAGE: mk_MK.UTF-8
+        LC_COLATE: 'mk_MK.UTF-8'
+        LC_CTYPE: 'mk_MK.UTF-8'
